@@ -14,4 +14,12 @@ class TestDeck < Minitest::Test
   def test_cards_returns_cards_objects
     assert_kind_of(Card, @deck.cards.first)
   end
+
+  def test_suffle_deck
+    original = @deck.cards.map(&:to_s)
+    @deck.shuffle
+    shuffled = @deck.cards.map(&:to_s)
+
+    refute_equal(original, shuffled)
+  end
 end

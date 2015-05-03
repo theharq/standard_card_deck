@@ -9,4 +9,8 @@ class Deck
   def initialize
     @cards = SUITS.product(RANKS).map{|suit, rank| Card.new(suit, rank) }
   end
+
+  def shuffle
+    cards.shuffle!
+  end
 end
