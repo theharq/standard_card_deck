@@ -18,4 +18,9 @@ class Deck
     return "There are no more cards on the Deck" unless cards.any?
     cards.shift
   end
+
+  def random_card
+    return "There are no more cards on the Deck" unless cards.any?
+    cards.delete cards.sample
+  end
 end
