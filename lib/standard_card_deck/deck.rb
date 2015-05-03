@@ -3,6 +3,7 @@ require 'standard_card_deck/card'
 class Deck
   SUITS = %w(hearts clubs spades diamonds).freeze
   RANKS = %w(ace two three four five six seven eight nine ten jack queen king).freeze
+  NO_CARDS_ERROR = "There are no more cards on the Deck".freeze
 
   attr_reader :cards
 
@@ -15,12 +16,12 @@ class Deck
   end
 
   def deal
-    return "There are no more cards on the Deck" unless cards.any?
+    return NO_CARDS_ERROR unless cards.any?
     cards.shift
   end
 
   def random_card
-    return "There are no more cards on the Deck" unless cards.any?
+    return NO_CARDS_ERROR unless cards.any?
     cards.delete cards.sample
   end
 end
