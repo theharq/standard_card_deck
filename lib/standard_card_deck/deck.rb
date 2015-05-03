@@ -13,4 +13,9 @@ class Deck
   def shuffle
     cards.shuffle!
   end
+
+  def deal
+    return "There are no more cards on the Deck" unless cards.any?
+    cards.shift
+  end
 end
