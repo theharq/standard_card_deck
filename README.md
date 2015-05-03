@@ -1,8 +1,14 @@
 # StandardCardDeck
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/standard_card_deck`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Code Climate](https://codeclimate.com/github/theharq/standard_card_deck/badges/gpa.svg)](https://codeclimate.com/github/theharq/standard_card_deck)
 
-TODO: Delete this and the text above, and describe your gem
+This is a Ruby gem that implements a [standard deck of playing cards](http://en.wikipedia.org/wiki/Standard_52-card_deck) (52 cards).
+
+This gem supports these actions
+
+* Shuffle the deck
+* Deal a card from the top of the deck
+* Select a card at random from the deck
 
 ## Installation
 
@@ -22,13 +28,34 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'standard_card_deck'
+
+#  52 card deck
+deck = Deck.new
+deck.cards.size #=> 52
+
+# Shuffle the deck
+deck.shuffle
+
+# Deal a card from the top of the deck
+deck.deal #=> Card object
+deck.cards.size #=> 51
+
+# Select a card at random from the deck
+deck.random_card #=> Card object
+deck.cards.size #=> 51
+
+# String representation of a card
+card = deck.deal
+card.to_s #=> "ace of hearts"
+```
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
